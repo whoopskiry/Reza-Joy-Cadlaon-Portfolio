@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Socialbloom | Social Media Manager</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --pink: #f4cbd5;
+  --blush: #f9e4e7;
+  --cream: #fff9ef;
+  --brown: #74535a;
+  --dark: #563d46;
+  --accent: #c77c92;
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  background:var(--cream);
+  color:var(--brown);
+  font-family:'DM Sans',sans-serif;
+}
+nav {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:22px 8%; position:sticky; top:0; z-index:10;
+  background:rgba(255,249,239,.95); backdrop-filter:blur(10px);
+}
+.logo { font-family:'Playfair Display'; font-size:25px; color:var(--accent); }
+nav a { text-decoration:none; color:var(--brown); font-size:13px; margin-left:24px; }
+nav a:hover { color:var(--accent); }
+.hero {
+  padding:90px 9%; min-height:570px;
+  display:grid; grid-template-columns:1.1fr .9fr;
+  align-items:center; gap:45px;
+}
+.eyebrow { color:var(--accent); letter-spacing:3px; font-size:11px; font-weight:bold; }
+h1,h2 { font-family:'Playfair Display',serif; color:var(--dark); }
+h1 { font-size:clamp(43px,6vw,76px); line-height:1.12; margin:20px 0; }
+h1 span { color:var(--accent); font-style:italic; }
+.hero p { line-height:1.9; max-width:450px; font-size:15px; }
+.btn {
+  display:inline-block; margin-top:28px; padding:14px 25px;
+  border-radius:30px; background:var(--accent); color:white;
+  text-decoration:none; font-size:13px; font-weight:bold;
+  transition:.2s;
+}
+.btn:hover { transform:translateY(-3px); background:var(--dark); }
+.hero-art {
+  background:var(--blush); border-radius:48% 48% 25px 25px;
+  min-height:390px; display:flex; align-items:center;
+  justify-content:center; position:relative; overflow:hidden;
+}
+.hero-art .heart { font-size:130px; }
+.sticker { position:absolute; font-size:30px; }
+.s1 { top:35px; left:35px; }
+.s2 { right:35px; bottom:55px; }
+section { padding:85px 9%; }
+.section-title { text-align:center; margin-bottom:45px; }
+.section-title h2 { font-size:39px; margin:12px 0; }
+.section-title p { font-size:14px; }
+.about {
+  background:#f8e8df; display:grid;
+  grid-template-columns:1fr 1fr; gap:50px; align-items:center;
+}
+.about-art {
+  background:var(--pink); min-height:320px; border-radius:25px;
+  display:grid; place-items:center; font-size:100px;
+}
+.about p { line-height:1.9; margin-top:15px; font-size:14px; }
+.services { background:var(--cream); }
+.cards {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:20px;
+}
+.card {
+  padding:30px 24px; border-radius:20px;
+  background:#f9e7e8; transition:.25s;
+}
+.card:nth-child(2) { background:#f4eadc; }
+.card:nth-child(3) { background:#f5dce4; }
+.card:hover { transform:translateY(-7px); }
+.card .emoji { font-size:35px; }
+.card h3 { font-family:'Playfair Display'; margin:18px 0 10px; color:var(--dark); }
+.card p { font-size:13px; line-height:1.8; }
+.portfolio { background:#f8e8df; }
+.projects {
+  display:grid; grid-template-columns:repeat(2,1fr); gap:25px;
+}
+.project {
+  border-radius:20px; overflow:hidden; background:var(--cream);
+}
+.project-art {
+  height:230px; display:grid; place-items:center;
+  font-size:55px; background:#f4d5dd;
+}
+.project:nth-child(2) .project-art { background:#eadcc9; }
+.project:nth-child(3) .project-art { background:#f0dce9; }
+.project:nth-child(4) .project-art { background:#f6e5d5; }
+.project-info { padding:20px; }
+.project-info h3 { font-family:'Playfair Display'; margin-bottom:8px; }
+.project-info p { font-size:12px; }
+.process { background:var(--cream); }
+.steps { display:grid; grid-template-columns:repeat(4,1fr); gap:15px; text-align:center; }
+.step { padding:20px 12px; }
+.step strong { display:block; color:var(--accent); font-size:30px; font-family:'Playfair Display'; }
+.step h3 { margin:12px 0; font-size:15px; }
+.step p { font-size:12px; line-height:1.7; }
+.contact {
+  background:var(--pink); text-align:center; padding:90px 20px;
+}
+.contact h2 { font-size:clamp(36px,5vw,54px); margin:15px 0; }
+.contact p { font-size:14px; line-height:1.8; }
+.contact .btn { background:var(--cream); color:var(--dark); }
+footer { padding:25px; text-align:center; font-size:12px; background:var(--cream); }
+footer span { color:var(--accent); }
+@media(max-width:700px) {
+  nav { padding:18px 5%; flex-wrap:wrap; gap:12px; }
+  nav a { margin-left:10px; font-size:11px; }
+  .hero,.about { grid-template-columns:1fr; padding:65px 7%; }
+  .hero-art { min-height:270px; }
+  section { padding:65px 7%; }
+  .cards { grid-template-columns:1fr; }
+  .projects { grid-template-columns:1fr; }
+  .steps { grid-template-columns:repeat(2,1fr); }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">♡ socialbloom.</div>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div>
+    <div class="eyebrow">HELLO THERE, LOVELY! ♡</div>
+    <h1>Let's make your brand <span>bloom</span> online.</h1>
+    <p>I'm [YOUR NAME], a creative Social Media Manager helping businesses build their online presence through beautiful content, thoughtful strategies, and meaningful connections.</p>
+    <a class="btn" href="#contact">Let's work together ♡ →</a>
+  </div>
+  <div class="hero-art">
+    <span class="sticker s1">🎀</span>
+    <span class="heart">🌷</span>
+    <span class="sticker s2">♡ ✨</span>
+  </div>
+</header>
+
+<section class="about" id="about">
+  <div class="about-art">🧸🌸</div>
+  <div>
+    <div class="eyebrow">A LITTLE ABOUT ME</div>
+    <h2 style="font-size:39px;margin-top:15px">Your social media bestie!</h2>
+    <p>Hi! I'm [YOUR NAME], a passionate social media manager who loves turning creative ideas into scroll-stopping content.</p>
+    <p>I believe every brand has a story worth sharing. My goal is to help yours shine through intentional visuals, engaging content, and strategies that connect with your audience.</p>
+    <p>When I'm not creating content, you'll probably find me collecting inspiration, drinking coffee, or planning my next creative project. ♡</p>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="section-title">
+    <div class="eyebrow">HOW I CAN HELP</div>
+    <h2>My lovely services</h2>
+    <p>Everything your brand needs to bloom online.</p>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="emoji">📱</div>
+      <h3>Social Media Management</h3>
+      <p>Content scheduling, account management, audience engagement, and consistent brand presence.</p>
+    </div>
+    <div class="card">
+      <div class="emoji">🎨</div>
+      <h3>Content Creation</h3>
+      <p>Creative graphics, reels, stories, captions, and visually cohesive content for your brand.</p>
+    </div>
+    <div class="card">
+      <div class="emoji">📈</div>
+      <h3>Social Media Strategy</h3>
+      <p>Content planning, audience research, brand positioning, and data-informed growth strategies.</p>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio" id="portfolio">
+  <div class="section-title">
+    <div class="eyebrow">A LITTLE SHOWCASE</div>
+    <h2>My creative corner ♡</h2>
+    <p>A peek into my content and creative projects.</p>
+  </div>
+  <div class="projects">
+    <div class="project">
+      <div class="project-art">🌷 🎀</div>
+      <div class="project-info">
+        <h3>Instagram Feed Design</h3>
+        <p>Visual branding · Feed aesthetics · Graphic design</p>
+      </div>
+    </div>
+    <div class="project">
+      <div class="project-art">☕ 🧁</div>
+      <div class="project-info">
+        <h3>Content Creation</h3>
+        <p>Creative direction · Reels · Lifestyle content</p>
+      </div>
+    </div>
+    <div class="project">
+      <div class="project-art">💌 ✨</div>
+      <div class="project-info">
+        <h3>Social Media Campaign</h3>
+        <p>Campaign planning · Captions · Engagement</p>
+      </div>
+    </div>
+    <div class="project">
+      <div class="project-art">📸 🌸</div>
+      <div class="project-info">
+        <h3>Brand Identity</h3>
+        <p>Brand visuals · Creative concepts · Moodboards</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="section-title">
+    <div class="eyebrow">THE MAGIC BEHIND THE SCENES</div>
+    <h2>How we'll work together</h2>
+  </div>
+  <div class="steps">
+    <div class="step"><strong>01</strong><h3>Let's Connect</h3><p>We'll get to know your brand and goals.</p></div>
+    <div class="step"><strong>02</strong><h3>Plan & Strategize</h3><p>I'll create a strategy made for your audience.</p></div>
+    <div class="step"><strong>03</strong><h3>Create & Publish</h3><p>Time to bring your content to life!</p></div>
+    <div class="step"><strong>04</strong><h3>Grow Together</h3><p>We'll review results and keep improving.</p></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="eyebrow">YOUR NEXT CHAPTER STARTS HERE ♡</div>
+  <h2>Ready to make some magic?</h2>
+  <p>Let's turn your ideas into beautiful content and your brand into something unforgettable.</p>
+  <a class="btn" href="mailto:your@email.com">Say hello to me! 💌</a>
+</section>
+
+<footer>
+  Made with <span>♡</span> and a little pixie dust · © 2026 [YOUR NAME]
+</footer>
+
+</body>
+</html>
